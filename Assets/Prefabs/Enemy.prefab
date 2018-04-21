@@ -19,14 +19,13 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4070671708142672}
-  - component: {fileID: 33299893737553492}
   - component: {fileID: 136699008035012714}
   - component: {fileID: 23924474672139752}
   - component: {fileID: 54640662122953686}
-  - component: {fileID: 136560208038407966}
   - component: {fileID: 135313011237021242}
   - component: {fileID: 195654038167900852}
   - component: {fileID: 114529920810973494}
+  - component: {fileID: 95548970834151498}
   m_Layer: 8
   m_Name: Enemy
   m_TagString: Enemy
@@ -41,7 +40,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1345386371913948}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -8.79, y: 1, z: 0}
+  m_LocalPosition: {x: -4.01, y: 1.01, z: -3.16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -81,13 +80,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!33 &33299893737553492
-MeshFilter:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1345386371913948}
-  m_Mesh: {fileID: 10208, guid: 0000000000000000e000000000000000, type: 0}
 --- !u!54 &54640662122953686
 Rigidbody:
   m_ObjectHideFlags: 1
@@ -103,6 +95,23 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 84
   m_CollisionDetection: 0
+--- !u!95 &95548970834151498
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1345386371913948}
+  m_Enabled: 1
+  m_Avatar: {fileID: 9000000, guid: fe2eb0b4e90413643a3ddc78c368140f, type: 3}
+  m_Controller: {fileID: 9100000, guid: e10558744504b244599302a4ca2e3be3, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
 --- !u!114 &114529920810973494
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -132,19 +141,6 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 0.8
   m_Center: {x: 0, y: 0.1, z: 0}
---- !u!136 &136560208038407966
-CapsuleCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1345386371913948}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 0.5
-  m_Height: 1.5
-  m_Direction: 1
-  m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!136 &136699008035012714
 CapsuleCollider:
   m_ObjectHideFlags: 1

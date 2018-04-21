@@ -23,6 +23,7 @@ public class Enemy : MonoBehaviour
     Transform playerPosition;
     NavMeshAgent nav;
     float slowVal = 1.0f;
+    bool updateAnimation = true;
 
     //Attack Vars
     bool playerInRange;
@@ -95,6 +96,7 @@ public class Enemy : MonoBehaviour
 
     public void StartSinking()
     {
+        anim.Play("fallingback", -1, 0f);
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
@@ -120,6 +122,7 @@ public class Enemy : MonoBehaviour
     void Attack()
     {
         timer = 0f;
+        anim.Play("attack", -1,0f);
         //player.TakeDamage(attackDamage);
     }
 
