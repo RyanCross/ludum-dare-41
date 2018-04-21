@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Tower : MonoBehaviour {
-
-    private Transform target;
+    
+    private Enemy target;
     public float range = 15f;
     public float fireRate = 1f; // fire one bullet per second
     private float cooldown = 0f;
@@ -33,7 +33,7 @@ public class Tower : MonoBehaviour {
         GameObject[] enemies = GameObject.FindGameObjectsWithTag(enemyTag);
         // shortest distance to enemy we've found so far. 
         float shortestDistance= Mathf.Infinity;
-        GameObject nearestEnemy = null;
+        Enemy nearestEnemy = null;
 
         foreach(GameObject enemy in enemies)
         {
@@ -42,14 +42,14 @@ public class Tower : MonoBehaviour {
             if (distanceToEnemy < shortestDistance)
             {
                 shortestDistance = distanceToEnemy;
-                nearestEnemy = enemy;
+                nearestEnemy = enemy.GetComponent<Enemy>();
             }
         }
 
         // found enemy within tower range
         if (nearestEnemy != null && shortestDistance <= range)
         {
-            target = nearestEnemy.transform;
+            target = nearestEnemy;
         }
         else
         {

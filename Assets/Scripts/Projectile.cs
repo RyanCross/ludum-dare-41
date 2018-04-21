@@ -5,11 +5,11 @@ using UnityEngine;
 public class Projectile : MonoBehaviour {
 
     // A projectile needs a:
-    public Transform target;
+    public Enemy target;
     public float speed = 70f;
     public GameObject impactEffect;
 
-    public void Seek(Transform _target)
+    public void Seek(Enemy _target)
     {
         target = _target;
     }
@@ -21,8 +21,8 @@ public class Projectile : MonoBehaviour {
             Destroy(gameObject);
             return;
         }
-
-        Vector3 dir = target.position - transform.position;
+        
+        Vector3 dir = target.transform.position - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
 
         // if the length of our direction vector (dir.magnitude), is less than or equal to the distance we are going to move this frame.
@@ -42,7 +42,8 @@ public class Projectile : MonoBehaviour {
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         // destroy this projectile
         Destroy(gameObject);
-        Destroy(target.gameObject);
+        //Destroy(target.gameObject);
+        target.Death(fromPlayer: false);
         // destroy effect after 2 seconds
         Destroy(effectIns, 2f);
     }
