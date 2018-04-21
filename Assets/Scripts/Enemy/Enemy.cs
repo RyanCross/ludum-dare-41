@@ -90,9 +90,11 @@ public class Enemy : MonoBehaviour
         capsuleCollider.isTrigger = true;
 
         anim.SetTrigger("Dead");
-
-        enemyAudio.clip = deathClip;
-        enemyAudio.Play();
+        if(Random.Range(0f, 1f) <= .05f)
+        {
+            enemyAudio.clip = deathClip;
+            enemyAudio.Play();
+        }
         //ScoreManager.score += scoreValue;
 
         StartSinking();
@@ -126,6 +128,7 @@ public class Enemy : MonoBehaviour
     void Attack()
     {
         timer = 0f;
+        enemyAudio.Play();
         anim.Play("attack", -1,0f);
         //player.TakeDamage(attackDamage);
     }
