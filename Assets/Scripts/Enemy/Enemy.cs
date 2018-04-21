@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float sinkSpeed = 2.5f;
     public int baseScore = 10;
     public AudioClip deathClip;
+    public AudioClip ouchClip;
 
     //Health Vars
     Animator anim;
@@ -23,6 +24,7 @@ public class Enemy : MonoBehaviour
     Transform playerPosition;
     NavMeshAgent nav;
     float slowVal = 1.0f;
+    bool updateAnimation = true;
 
     //Attack Vars
     bool playerInRange;
@@ -39,6 +41,9 @@ public class Enemy : MonoBehaviour
         anim = GetComponent<Animator>();
         enemyAudio = GetComponent<AudioSource>();
         capsuleCollider = GetComponent<CapsuleCollider>();
+
+        nav.speed = nav.speed + Random.Range(1.0f, 1.5f);
+        anim.Play("walk", -1, Random.Range(0f, .4f));
 
         currentHealth = startingHealth;
     }
@@ -67,7 +72,7 @@ public class Enemy : MonoBehaviour
     {
         if (isDead)
             return;
-
+        enemyAudio.clip = ouchClip;
         enemyAudio.Play();
 
         currentHealth -= amount;
@@ -95,10 +100,11 @@ public class Enemy : MonoBehaviour
 
     public void StartSinking()
     {
+        anim.Play("fallingback", -1, 0f);
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, .5f);
     }
 
     void OnTriggerEnter(Collider other)
@@ -120,6 +126,7 @@ public class Enemy : MonoBehaviour
     void Attack()
     {
         timer = 0f;
+        anim.Play("attack", -1,0f);
         //player.TakeDamage(attackDamage);
     }
 
