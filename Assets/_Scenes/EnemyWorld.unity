@@ -425,26 +425,6 @@ Prefab:
       propertyPath: m_RootOrder
       value: 5
       objectReference: {fileID: 0}
-    - target: {fileID: 82044274085484718, guid: 0584839bceadb844fa31b1ca352056ba,
-        type: 2}
-      propertyPath: m_audioClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 1c0a2054f4af09d4eb8a8068fc6d4c55, type: 3}
-    - target: {fileID: 82044274085484718, guid: 0584839bceadb844fa31b1ca352056ba,
-        type: 2}
-      propertyPath: spreadCustomCurve.m_RotationOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 114694414158853504, guid: 0584839bceadb844fa31b1ca352056ba,
-        type: 2}
-      propertyPath: ouchClip
-      value: 
-      objectReference: {fileID: 8300000, guid: 407464efb91b7874bb4d2f529fd713cb, type: 3}
-    - target: {fileID: 114694414158853504, guid: 0584839bceadb844fa31b1ca352056ba,
-        type: 2}
-      propertyPath: deathClip
-      value: 
-      objectReference: {fileID: 8300000, guid: d040c15e65f387d4290c87ec13d91cb6, type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 0584839bceadb844fa31b1ca352056ba, type: 2}
   m_IsPrefabParent: 0

@@ -1232,7 +1232,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: 1c0a2054f4af09d4eb8a8068fc6d4c55, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -1290,7 +1290,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -1335,7 +1335,8 @@ MonoBehaviour:
   currentHealth: 0
   sinkSpeed: 2.5
   baseScore: 10
-  deathClip: {fileID: 0}
+  deathClip: {fileID: 8300000, guid: d040c15e65f387d4290c87ec13d91cb6, type: 3}
+  ouchClip: {fileID: 8300000, guid: 407464efb91b7874bb4d2f529fd713cb, type: 3}
   timeBetweenAttacks: 0.5
 --- !u!135 &135112525647659102
 SphereCollider:
