@@ -33,7 +33,7 @@ public class EnemyHealth : MonoBehaviour {
         }
     }
 
-    public void TakeDamage(int amount, Vector3 hitPoint, bool fromPlayer)
+    public void TakeDamage(int amount, bool fromPlayer)
     {
         if (isDead)
             return;
