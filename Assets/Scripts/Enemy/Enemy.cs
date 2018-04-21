@@ -42,6 +42,9 @@ public class Enemy : MonoBehaviour
         enemyAudio = GetComponent<AudioSource>();
         capsuleCollider = GetComponent<CapsuleCollider>();
 
+        nav.speed = nav.speed + Random.Range(1.0f, 1.5f);
+        anim.Play("walk", -1, Random.Range(0f, .4f));
+
         currentHealth = startingHealth;
     }
 
@@ -101,7 +104,7 @@ public class Enemy : MonoBehaviour
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
-        Destroy(gameObject, 2f);
+        Destroy(gameObject, .5f);
     }
 
     void OnTriggerEnter(Collider other)

@@ -36,6 +36,7 @@ GameObject:
   - component: {fileID: 4315927703588992}
   - component: {fileID: 114757557700169028}
   - component: {fileID: 82581442527098632}
+  - component: {fileID: 208173675385005258}
   m_Layer: 0
   m_Name: Tower1
   m_TagString: Untagged
@@ -58,7 +59,7 @@ GameObject:
   m_Name: towerSquare
   m_TagString: Tower
   m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
+  m_NavMeshLayer: 1
   m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &4295702685662098
@@ -223,7 +224,7 @@ AudioSource:
       tangentMode: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
-    m_RotationOrder: 4
+    m_RotationOrder: 0
   reverbZoneMixCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -254,3 +255,18 @@ MonoBehaviour:
     type: 2}
   firePoint: {fileID: 4295702685662098}
   fireSound: {fileID: 0}
+--- !u!208 &208173675385005258
+NavMeshObstacle:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669307415719232}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 1
+  m_Extents: {x: 5, y: 15, z: 5}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: 0, z: 0}
+  m_TimeToStationary: 0
