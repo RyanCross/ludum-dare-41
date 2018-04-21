@@ -104,7 +104,7 @@ public class Enemy : MonoBehaviour
         GetComponent<NavMeshAgent>().enabled = false;
         GetComponent<Rigidbody>().isKinematic = true;
         isSinking = true;
-        Destroy(gameObject, 1f);
+        Destroy(gameObject, .5f);
     }
 
     void OnTriggerEnter(Collider other)
