@@ -10,6 +10,7 @@ public class Enemy : MonoBehaviour
     public float sinkSpeed = 2.5f;
     public int baseScore = 10;
     public AudioClip deathClip;
+    public AudioClip ouchClip;
 
     //Health Vars
     Animator anim;
@@ -68,7 +69,7 @@ public class Enemy : MonoBehaviour
     {
         if (isDead)
             return;
-
+        enemyAudio.clip = ouchClip;
         enemyAudio.Play();
 
         currentHealth -= amount;
