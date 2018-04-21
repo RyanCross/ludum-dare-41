@@ -15,4 +15,12 @@ public class squarePlayer : MonoBehaviour {
 	void FixedUpdate () {
 		transform.Translate (moveSpeed*Input.GetAxis("Horizontal")*Time.deltaTime, 0f,moveSpeed*Input.GetAxis("Vertical")*Time.deltaTime);
 	}
+
+	void slowed(){
+		moveSpeed = 5;
+	}
+
+	void normalSpeed(){
+		moveSpeed = 10;
+	}
 }
