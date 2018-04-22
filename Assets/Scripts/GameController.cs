@@ -12,7 +12,6 @@ public class GameController : MonoBehaviour
 	public void Start()
 	{
         playerInventory = new PlayerInventory();
-        playerInventory.initPlayerInventoryData();
 	}
 
 	void Awake()
