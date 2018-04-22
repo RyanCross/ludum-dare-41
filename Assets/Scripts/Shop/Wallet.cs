@@ -4,9 +4,9 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class MoneySpender : MonoBehaviour {
+public class Wallet : MonoBehaviour {
 
-    public Text text;
+    public Text fundsText;
     public int simpleCost = 200;
     public int otherCost = 500;
 
@@ -14,13 +14,13 @@ public class MoneySpender : MonoBehaviour {
 
     public void Buy(int cost)
     {
-        text.text = Spend(cost);
+        fundsText.text = Spend(cost);
     }
 
     private string Spend(int cost)
     {
         cash -= cost;
-        int newMoney = System.Int32.Parse(Regex.Match(text.text, @"\d+").Value)-cost;
+        int newMoney = System.Int32.Parse(Regex.Match(fundsText.text, @"\d+").Value)-cost;
         return "Funds - " + cash + "g";
     }
 }

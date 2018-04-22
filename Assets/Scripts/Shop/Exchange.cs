@@ -3,20 +3,18 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Exchange : MonoBehaviour {
-    public Merch thingToBuy;
-    public MoneySpender wallet;
+    public Buyable thingToBuy;
+    public Wallet wallet;
 
-    public bool Buy()
+    public void Buy()
     {
-        if (wallet.cash > thingToBuy.Cost)
+        if (wallet.cash >= thingToBuy.cost)
         {
-            wallet.Buy(thingToBuy.Cost);
+            wallet.Buy(thingToBuy.cost);
             thingToBuy.Increment();
-            return true;
         } else
         {
-            //Buy failed
-            return false;
+
         }
     }
 }
