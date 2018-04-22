@@ -113,7 +113,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 0
   lifetime: 3
-  bulletDamage: 0
+  bulletDamage: 50
 --- !u!135 &135645460876375812
 SphereCollider:
   m_ObjectHideFlags: 1
