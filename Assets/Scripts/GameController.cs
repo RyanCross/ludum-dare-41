@@ -11,7 +11,7 @@ public class GameController : MonoBehaviour
 
 	public void Start()
 	{
-        playerInventory = new PlayerInventory();
+        playerInventory = PlayerInventory.Instance;
 	}
 
 	void Awake()
