@@ -37,6 +37,7 @@ GameObject:
   - component: {fileID: 114757557700169028}
   - component: {fileID: 82581442527098632}
   - component: {fileID: 208173675385005258}
+  - component: {fileID: 114106433712452042}
   m_Layer: 0
   m_Name: Tower1
   m_TagString: Untagged
@@ -237,6 +238,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!114 &114106433712452042
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1669307415719232}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 60d86ba29937eae4ba181c9571be73e1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  text: {fileID: 0}
+  <Cost>k__BackingField: 0
 --- !u!114 &114757557700169028
 MonoBehaviour:
   m_ObjectHideFlags: 1
