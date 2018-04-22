@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
 
     public float moveSpeed;
+	public Animator anim;
     public GunController gun;
 
     private Rigidbody body;
@@ -17,6 +18,7 @@ public class PlayerController : MonoBehaviour {
     public TowerTypes towerToBePlaced;
     public bool canTowerBePlaced;
 
+<<<<<<< HEAD
     // prefabs assigned in the inspector:
 
     // hold the actual model (0), as well as the placeable (1) and restricted silhoutte prefabs (2).
@@ -35,6 +37,11 @@ public class PlayerController : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
+=======
+	// Use this for initialization
+	void Start () {
+		anim = GetComponent<Animator>();
+>>>>>>> 58f5b56... Added Player Health
         body = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
 	}
@@ -43,9 +50,11 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
         //Movement
         moveInput = new Vector3(Input.GetAxisRaw("Horizontal"), 0f, Input.GetAxisRaw("Vertical"));
-        moveVelocity = moveInput * moveSpeed;
+        
+		moveVelocity = moveInput * moveSpeed;		
+		anim.SetFloat("speed",moveVelocity.magnitude);
 
-        //Looking around
+		//Looking around
         Ray cameraRay = mainCamera.ScreenPointToRay(Input.mousePosition);
         Plane groundPlane = new Plane(Vector3.up, Vector3.zero);
         float rayLength;
@@ -77,6 +86,7 @@ public class PlayerController : MonoBehaviour {
 
         if (isInBuildMode == false)
         {
+<<<<<<< HEAD
             cleanUpBuildMode();
             //Shooting the gun
             if (Input.GetMouseButtonDown(0))
@@ -177,6 +187,31 @@ public class PlayerController : MonoBehaviour {
             GO.transform.position = hitInfo.point;
         }
     }
+=======
+            gun.isFiring = true;
+			anim.SetBool ("isFiring",true);
+        } 
+        if(Input.GetMouseButtonUp(0))
+        {
+            gun.isFiring = false;
+			anim.SetBool("isFiring",false);
+        }
+	}
+
+	public void TakeDamage(int damage) {
+		HealthBarUI.health -= damage;
+		anim.Play ("Damaged", -1, 0f);
+
+		if(HealthBarUI.health <= 0) {
+			print ("You died");
+			moveSpeed = 0;
+			anim.Play ("Die", -1, 0f);
+
+			//End Scene?
+		}
+
+	}
+>>>>>>> 58f5b56... Added Player Health
 
 	private void FixedUpdate() {
         body.velocity = moveVelocity;

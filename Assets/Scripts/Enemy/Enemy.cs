@@ -18,7 +18,7 @@ public class Enemy : MonoBehaviour
     public int killGoal;
     
     //Health Vars
-    Animator anim;
+    static Animator anim;
     AudioSource enemyAudio;
     CapsuleCollider capsuleCollider;
     bool isDead;
@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     bool playerInRange;
     float timer;
     public float timeBetweenAttacks = 0.5f;
-    int attackDamage = 1;
+    int attackDamage = 25;
 
     private void Awake()
     {
@@ -142,6 +142,10 @@ public class Enemy : MonoBehaviour
         timer = 0f;
         enemyAudio.Play();
         anim.Play("attack", -1,0f);
+		if(HealthBarUI.health > 0){
+			player.SendMessage("TakeDamage",attackDamage);//TakeDamage (attackDamage);
+		}
+
         //player.TakeDamage(attackDamage);
     }
 
