@@ -768,6 +768,7 @@ MonoBehaviour:
   currentHealth: 0
   sinkSpeed: 2.5
   baseScore: 10
+  towerScore: 4
   deathClip: {fileID: 8300000, guid: d040c15e65f387d4290c87ec13d91cb6, type: 3}
   ouchClip: {fileID: 8300000, guid: 407464efb91b7874bb4d2f529fd713cb, type: 3}
   killGoal: 60
@@ -1697,9 +1698,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fundsText: {fileID: 956401939}
-  simpleCost: 200
-  otherCost: 500
-  cash: 6000
 --- !u!1 &727888322
 GameObject:
   m_ObjectHideFlags: 0
@@ -1842,6 +1840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thingToBuy: {fileID: 1391027144}
   wallet: {fileID: 710830981}
+  towerType: 0
 --- !u!1001 &736226838
 Prefab:
   m_ObjectHideFlags: 0
@@ -2308,7 +2307,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Funds - 6000g
+  m_Text: Funds - 1000g
 --- !u!222 &956401940
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2327,9 +2326,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fundsText: {fileID: 956401939}
-  simpleCost: 200
-  otherCost: 500
-  cash: 0
 --- !u!1 &981154468
 GameObject:
   m_ObjectHideFlags: 0
@@ -2846,6 +2842,24 @@ Prefab:
       propertyPath: m_LocalScale.x
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 114993755537281984, guid: 4f336c3750e6d4122a0c0bafe804c409,
+        type: 2}
+      propertyPath: towerOnePrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1669307415719232, guid: cdc50cec9048be04795a1efba0c84ce3,
+        type: 2}
+    - target: {fileID: 114993755537281984, guid: 4f336c3750e6d4122a0c0bafe804c409,
+        type: 2}
+      propertyPath: towerOnePrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1488282335360690, guid: 46ac9d0a46adf974b85e19cd34b7be9d,
+        type: 2}
+    - target: {fileID: 114993755537281984, guid: 4f336c3750e6d4122a0c0bafe804c409,
+        type: 2}
+      propertyPath: towerOnePrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1488282335360690, guid: f831aca83951dc743a7ab0ddb447635d,
+        type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f336c3750e6d4122a0c0bafe804c409, type: 2}
   m_IsPrefabParent: 0
@@ -3000,6 +3014,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thingToBuy: {fileID: 1699647197}
   wallet: {fileID: 710830981}
+  towerType: 0
 --- !u!1001 &1272586707
 Prefab:
   m_ObjectHideFlags: 0

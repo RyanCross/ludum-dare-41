@@ -9,12 +9,13 @@ public class Enemy : MonoBehaviour
     public int startingHealth = 100;
     public int currentHealth;
     public float sinkSpeed = 2.5f;
-    public int baseScore = 10;
+    public int baseScore = 5;
+    public int towerScore = 4;
     public AudioClip deathClip;
     public AudioClip ouchClip;
 
     //Help scene move on
-    public static int numZombies = -1;
+    public static int zombieEstimate = -1;
     public int killGoal;
     
     //Health Vars
@@ -29,7 +30,6 @@ public class Enemy : MonoBehaviour
     Transform playerPosition;
     NavMeshAgent nav;
     float slowVal = 1.0f;
-    bool updateAnimation = true;
 
     //Attack Vars
     bool playerInRange;
@@ -39,9 +39,9 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
-        if(numZombies==-1)
+        if(zombieEstimate==-1)
         {
-            numZombies = killGoal;
+            zombieEstimate = killGoal;
         }
         player = GameObject.FindGameObjectWithTag("Player");
         playerPosition = player.transform;
@@ -94,8 +94,8 @@ public class Enemy : MonoBehaviour
 
     public void Death(bool fromPlayer)
     {
-        Interlocked.Decrement(ref numZombies);
-        //Debug.Log(numZombies);
+        zombieEstimate--;
+        //Interlocked.Decrement(ref numZombies);
 
         isDead = true;
 
@@ -107,7 +107,7 @@ public class Enemy : MonoBehaviour
             enemyAudio.clip = deathClip;
             enemyAudio.Play();
         }
-        //ScoreManager.score += scoreValue;
+        PlayerInventory.Instance.Cash += fromPlayer ? baseScore : towerScore;
 
         StartSinking();
     }
@@ -152,6 +152,6 @@ public class Enemy : MonoBehaviour
 
     public static void SetNumZombies(int x)
     {
-        Interlocked.Add(ref numZombies, x);
+        zombieEstimate = x;
     }
 }

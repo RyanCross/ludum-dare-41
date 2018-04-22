@@ -2,12 +2,12 @@
 
 public class Shop : MonoBehaviour {
 
-    BuildManager buildManager;
+    public PlayerInventory playerInventory;
     public GameObject canvas;
 
     void Start()
     {
-        buildManager = BuildManager.instance;
+        playerInventory = PlayerInventory.Instance;
     }
 
     void Update()
@@ -16,7 +16,7 @@ public class Shop : MonoBehaviour {
         {
             canvas.SetActive(false);
             //level start
-            Enemy.SetNumZombies(4*(6+7+8));
+            Enemy.SetNumZombies(120);
             WaveSpawner.waveNum = 2;
         }
     }
@@ -24,12 +24,12 @@ public class Shop : MonoBehaviour {
     public void PurchaseStandardTurret()
     {
         Debug.Log("Standard Turret Purchased.");
-        buildManager.SetTowerToBuild(buildManager.standardTowerPrefab);
+        playerInventory.AddTowerToInventory(TowerTypes.tower1);
     }
 
     public void PurchaseOtherTurret()
     {
         Debug.Log("Other Turret Purchased.");
-        buildManager.SetTowerToBuild(buildManager.otherTowerPrefab);
+        playerInventory.AddTowerToInventory(TowerTypes.tower2);
     }
 }

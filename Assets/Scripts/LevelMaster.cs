@@ -17,7 +17,7 @@ public class LevelMaster : MonoBehaviour {
 
     void Update()
     {
-        if (Enemy.numZombies==0)
+        if (Enemy.zombieEstimate<=0 && GameObject.FindGameObjectsWithTag("Enemy").Length==1)
         {
             if (shop.gameObject.activeSelf == false)
             {

@@ -29,8 +29,8 @@ public class PlayerController : MonoBehaviour {
         isInBuildMode = false;
         canTowerBePlaced = false;
         Cursor.visible = false;
-        playerInventory = GameController.Instance.playerInventory;
         towerToBePlaced = TowerTypes.noTower;
+        playerInventory = PlayerInventory.Instance;
     }
 
     // Use this for initialization
@@ -106,7 +106,7 @@ public class PlayerController : MonoBehaviour {
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
-            if (playerInventory.tower1Count > 0)
+            if (playerInventory.Tower1Count > 0)
             {
                 if(currentSilhoutte != null)
                 {
