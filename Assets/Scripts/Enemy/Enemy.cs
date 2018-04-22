@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Threading;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -12,6 +13,10 @@ public class Enemy : MonoBehaviour
     public AudioClip deathClip;
     public AudioClip ouchClip;
 
+    //Help scene move on
+    public static int numZombies = -1;
+    public int killGoal;
+    
     //Health Vars
     Animator anim;
     AudioSource enemyAudio;
@@ -34,6 +39,10 @@ public class Enemy : MonoBehaviour
 
     private void Awake()
     {
+        if(numZombies==-1)
+        {
+            numZombies = killGoal;
+        }
         player = GameObject.FindGameObjectWithTag("Player");
         playerPosition = player.transform;
         nav = GetComponent<NavMeshAgent>();
@@ -85,6 +94,9 @@ public class Enemy : MonoBehaviour
 
     public void Death(bool fromPlayer)
     {
+        Interlocked.Decrement(ref numZombies);
+        //Debug.Log(numZombies);
+
         isDead = true;
 
         capsuleCollider.isTrigger = true;
@@ -136,5 +148,10 @@ public class Enemy : MonoBehaviour
     void MakeSlow()
     {
         nav.speed = slowVal;
+    }
+
+    public static void SetNumZombies(int x)
+    {
+        Interlocked.Add(ref numZombies, x);
     }
 }
