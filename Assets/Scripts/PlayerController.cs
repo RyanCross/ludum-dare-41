@@ -17,7 +17,9 @@ public class PlayerController : MonoBehaviour {
     public TowerTypes towerToBePlaced;
     public bool canTowerBePlaced;
 
-    // prefabs assigned in the inspector:
+    //cursor stuff
+    public Sprite buildCursor;
+    public Sprite shootCursor;
 
     // hold the actual model (0), as well as the placeable (1) and restricted silhoutte prefabs (2).
     public GameObject[] towerOnePrefabs = new GameObject[3];
@@ -28,15 +30,17 @@ public class PlayerController : MonoBehaviour {
     {
         isInBuildMode = false;
         canTowerBePlaced = false;
-        Cursor.visible = false;
         towerToBePlaced = TowerTypes.noTower;
         playerInventory = PlayerInventory.Instance;
+        //buildCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Textures/Cursor-Arrow-PNG-File.png");
+        //shootCursor = UnityEditor.AssetDatabase.LoadAssetAtPath<Sprite>("Assets/Textures/cross-hair-cursor.png");
     }
 
     // Use this for initialization
     void Start () {
         body = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
+        Cursor.SetCursor(shootCursor.texture, Vector2.zero, CursorMode.Auto);
 	}
 	
 	// Update is called once per frame
@@ -62,13 +66,13 @@ public class PlayerController : MonoBehaviour {
             if (isInBuildMode == true)
             {
                 isInBuildMode = false;
-                Cursor.visible = false;
+                Cursor.SetCursor(shootCursor.texture, Vector2.zero, CursorMode.Auto);
                 Debug.Log("Build Mode Exited.");
             }
             else
             {
                 isInBuildMode = true;
-                Cursor.visible = true;
+                Cursor.SetCursor(buildCursor.texture, Vector2.zero, CursorMode.Auto);
                 Debug.Log("Entering Build Mode.");
                 // just in case, stop firing the gun
                 gun.isFiring = false;
@@ -101,8 +105,8 @@ public class PlayerController : MonoBehaviour {
     {
         
         Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
-        RaycastHit hitInfo;
-        Vector3 mousePos;
+        //RaycastHit hitInfo;
+        //Vector3 mousePos;
 
         if (Input.GetKeyDown(KeyCode.Alpha1))
         {
@@ -156,7 +160,7 @@ public class PlayerController : MonoBehaviour {
     // Clean up any left over objects or UI elements from toggling build mode.
     private void cleanUpBuildMode()
     {
-        Cursor.visible = false;
+        Cursor.SetCursor(shootCursor.texture, Vector2.zero, CursorMode.Auto);
         canTowerBePlaced = false;
         Destroy(currentSilhoutte);
         currentSilhoutte = null;
