@@ -160,6 +160,7 @@ public class PlayerController : MonoBehaviour {
         Cursor.visible = false;
         canTowerBePlaced = false;
         Destroy(currentSilhoutte);
+        currentSilhoutte = null;
     }
 
     private void MoveObjectToMouse(GameObject GO)

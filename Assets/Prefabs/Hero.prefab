@@ -136,7 +136,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1168367804434968}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1.4782032, y: 3.1, z: 1.1093554}
+  m_LocalPosition: {x: 1.7703058, y: 0.37, z: -10.401318}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4992416938925816}
@@ -419,9 +419,21 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   gun: {fileID: 114628296217570316}
-  towerOnePrefab: {fileID: 1669307415719232, guid: cdc50cec9048be04795a1efba0c84ce3,
-    type: 2}
-  currentPlaceableObject: {fileID: 0}
+  currentSilhoutte: {fileID: 0}
+  towerToBePlaced: 0
+  canTowerBePlaced: 0
+  towerOnePrefabs:
+  - {fileID: 1669307415719232, guid: cdc50cec9048be04795a1efba0c84ce3, type: 2}
+  - {fileID: 1488282335360690, guid: 46ac9d0a46adf974b85e19cd34b7be9d, type: 2}
+  - {fileID: 1488282335360690, guid: f831aca83951dc743a7ab0ddb447635d, type: 2}
+  towerTwoPrefabs:
+  - {fileID: 1669307415719232, guid: cdc50cec9048be04795a1efba0c84ce3, type: 2}
+  - {fileID: 1488282335360690, guid: 46ac9d0a46adf974b85e19cd34b7be9d, type: 2}
+  - {fileID: 1488282335360690, guid: f831aca83951dc743a7ab0ddb447635d, type: 2}
+  towerThreePrefabs:
+  - {fileID: 1669307415719232, guid: cdc50cec9048be04795a1efba0c84ce3, type: 2}
+  - {fileID: 1488282335360690, guid: 46ac9d0a46adf974b85e19cd34b7be9d, type: 2}
+  - {fileID: 1488282335360690, guid: f831aca83951dc743a7ab0ddb447635d, type: 2}
 --- !u!135 &135038766641617196
 SphereCollider:
   m_ObjectHideFlags: 1
