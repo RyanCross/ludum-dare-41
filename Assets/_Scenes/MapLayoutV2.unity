@@ -3668,6 +3668,21 @@ GameObject:
   m_PrefabParentObject: {fileID: 1844211961039178, guid: 4a9700f2f9b13524b8612f577296c675,
     type: 2}
   m_PrefabInternal: {fileID: 199655781}
+--- !u!114 &1911331355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1911331354}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 41b516be58206e74ca20cde2d0444b28, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  standardTowerPrefab: {fileID: 1669307415719232, guid: cdc50cec9048be04795a1efba0c84ce3,
+    type: 2}
+  otherTowerPrefab: {fileID: 1669307415719232, guid: ee35be186c2698849b5a8dc33bf5b810,
+    type: 2}
 --- !u!114 &1911331357
 MonoBehaviour:
   m_ObjectHideFlags: 0
