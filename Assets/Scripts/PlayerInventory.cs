@@ -10,7 +10,7 @@ public class PlayerInventory {
 
     public void initPlayerInventoryData()
     {
-        tower1Count = 1;
+        tower1Count = 0;
         tower2Count = 0;
         tower3Count = 0;     
     }

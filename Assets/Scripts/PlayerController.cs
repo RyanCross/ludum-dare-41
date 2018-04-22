@@ -29,8 +29,7 @@ public class PlayerController : MonoBehaviour {
         isInBuildMode = false;
         canTowerBePlaced = false;
         Cursor.visible = false;
-        playerInventory = new PlayerInventory();
-        playerInventory.initPlayerInventoryData();
+        playerInventory = GameController.Instance.playerInventory;
         towerToBePlaced = TowerTypes.noTower;
     }
 

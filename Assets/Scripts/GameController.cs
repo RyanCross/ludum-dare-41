@@ -7,7 +7,15 @@ public class GameController : MonoBehaviour
 
     public static GameController Instance;
 
-    void Awake()
+    public PlayerInventory playerInventory;
+
+	public void Start()
+	{
+        playerInventory = new PlayerInventory();
+        playerInventory.initPlayerInventoryData();
+	}
+
+	void Awake()
     {
         if (Instance == null)
         {
