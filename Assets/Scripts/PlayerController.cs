@@ -11,9 +11,31 @@ public class PlayerController : MonoBehaviour {
     private Vector3 moveInput;
     private Vector3 moveVelocity;
     private Camera mainCamera;
+    private bool isInBuildMode;
+    public GameObject currentSilhoutte;
+    public PlayerInventory playerInventory;
+    public TowerTypes towerToBePlaced;
+    public bool canTowerBePlaced;
 
-	// Use this for initialization
-	void Start () {
+    // prefabs assigned in the inspector:
+
+    // hold the actual model (0), as well as the placeable (1) and restricted silhoutte prefabs (2).
+    public GameObject[] towerOnePrefabs = new GameObject[3];
+    public GameObject[] towerTwoPrefabs = new GameObject[3];
+    public GameObject[] towerThreePrefabs = new GameObject[3];
+
+    private void Awake()
+    {
+        isInBuildMode = false;
+        canTowerBePlaced = false;
+        Cursor.visible = false;
+        playerInventory = new PlayerInventory();
+        playerInventory.initPlayerInventoryData();
+        towerToBePlaced = TowerTypes.noTower;
+    }
+
+    // Use this for initialization
+    void Start () {
         body = GetComponent<Rigidbody>();
         mainCamera = FindObjectOfType<Camera>();
 	}
@@ -36,16 +58,126 @@ public class PlayerController : MonoBehaviour {
             transform.LookAt(new Vector3(pointToLook.x, transform.position.y, pointToLook.z));
         }
 
-        //Shooting the gun
-        if(Input.GetMouseButtonDown(0))
+        if(Input.GetKeyDown(KeyCode.Tab))
         {
-            gun.isFiring = true;
-        } 
-        if(Input.GetMouseButtonUp(0))
+            if (isInBuildMode == true)
+            {
+                isInBuildMode = false;
+                Cursor.visible = false;
+                Debug.Log("Build Mode Exited.");
+            }
+            else
+            {
+                isInBuildMode = true;
+                Cursor.visible = true;
+                Debug.Log("Entering Build Mode.");
+                // just in case, stop firing the gun
+                gun.isFiring = false;
+            }
+        }
+
+        if (isInBuildMode == false)
         {
-            gun.isFiring = false;
+            cleanUpBuildMode();
+            //Shooting the gun
+            if (Input.GetMouseButtonDown(0))
+            {
+                gun.isFiring = true;
+            }
+            if (Input.GetMouseButtonUp(0))
+            {
+                gun.isFiring = false;
+            }
+        }
+
+        if (isInBuildMode == true)
+        {
+            InstantiateSilhoutteAtMousePos();
+            CheckForPlacement();
         }
 	}
+
+
+    private void InstantiateSilhoutteAtMousePos ()
+    {
+        
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hitInfo;
+        Vector3 mousePos;
+
+        if (Input.GetKeyDown(KeyCode.Alpha1))
+        {
+            if (playerInventory.tower1Count > 0)
+            {
+                if(currentSilhoutte != null)
+                {
+                    Destroy(currentSilhoutte);
+                    currentSilhoutte = null;
+                }
+                currentSilhoutte = (GameObject)Instantiate(towerOnePrefabs[1]);
+                towerToBePlaced = TowerTypes.tower1;
+                canTowerBePlaced = true;
+            }
+            else
+            {
+                if (currentSilhoutte != null)
+                {
+                    Destroy(currentSilhoutte);
+                    currentSilhoutte = null;
+                }
+                currentSilhoutte = (GameObject)Instantiate(towerOnePrefabs[2]);
+                canTowerBePlaced = false;
+            }
+        }
+        MoveObjectToMouse(currentSilhoutte);
+    }
+
+    private void CheckForPlacement()
+    {
+        if (Input.GetMouseButtonDown(0))
+        {
+            if (currentSilhoutte != null && canTowerBePlaced)
+            {
+                if (towerToBePlaced == TowerTypes.tower1)
+                {
+                    Instantiate(towerOnePrefabs[0], currentSilhoutte.transform.position, currentSilhoutte.transform.rotation);
+                    playerInventory.RemoveTowerFromInventory(towerToBePlaced);
+                    Destroy(currentSilhoutte);
+                }
+            }
+        }
+       
+        else
+        {
+            return;
+        }
+    }
+
+
+    // Clean up any left over objects or UI elements from toggling build mode.
+    private void cleanUpBuildMode()
+    {
+        Cursor.visible = false;
+        canTowerBePlaced = false;
+        Destroy(currentSilhoutte);
+        currentSilhoutte = null;
+    }
+
+    private void MoveObjectToMouse(GameObject GO)
+    {
+        if (GO == null)
+        {
+            return;
+        }
+
+        Ray ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+        RaycastHit hitInfo;
+        if (Physics.Raycast(ray, out hitInfo))
+        {
+            GO.transform.position = hitInfo.point;
+        }
+    }
 
 	private void FixedUpdate() {
         body.velocity = moveVelocity;
