@@ -419,6 +419,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   gun: {fileID: 114628296217570316}
+  towerOnePrefab: {fileID: 1669307415719232, guid: cdc50cec9048be04795a1efba0c84ce3,
+    type: 2}
+  currentPlaceableObject: {fileID: 0}
 --- !u!135 &135038766641617196
 SphereCollider:
   m_ObjectHideFlags: 1

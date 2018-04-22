@@ -124,10 +124,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 100
-  currentHealth: 0
+  currentHealth: 10
   sinkSpeed: 2.5
   baseScore: 10
   deathClip: {fileID: 0}
+  ouchClip: {fileID: 0}
   timeBetweenAttacks: 0.5
 --- !u!135 &135313011237021242
 SphereCollider:
