@@ -162,19 +162,6 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
-    public void TakeDamage(int damage) {
-		HealthBarUI.health -= damage;
-		anim.Play ("Damaged", -1, 0f);
-
-		if(HealthBarUI.health <= 0) {
-			print ("You died");
-			moveSpeed = 0;
-			anim.Play ("Die", -1, 0f);
-
-			//End Scene?
-		}
-	}
-
 
     // Clean up any left over objects or UI elements from toggling build mode.
     private void cleanUpBuildMode()
