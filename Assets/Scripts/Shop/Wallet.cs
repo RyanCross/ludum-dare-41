@@ -7,10 +7,17 @@ using UnityEngine.UI;
 public class Wallet : MonoBehaviour {
 
     public Text fundsText;
-    public int simpleCost = 200;
-    public int otherCost = 500;
+    PlayerInventory playerInventory;
 
-    public int cash;
+    private void Awake()
+    {
+        playerInventory = PlayerInventory.Instance;
+    }
+
+    private void Update()
+    {
+        fundsText.text = "Funds - " + playerInventory.Cash + "g";
+    }
 
     public void Buy(int cost)
     {
@@ -19,8 +26,8 @@ public class Wallet : MonoBehaviour {
 
     private string Spend(int cost)
     {
-        cash -= cost;
+        playerInventory.Cash -= cost;
         int newMoney = System.Int32.Parse(Regex.Match(fundsText.text, @"\d+").Value)-cost;
-        return "Funds - " + cash + "g";
+        return "Funds - " + playerInventory.Cash + "g";
     }
 }

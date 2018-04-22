@@ -3,31 +3,43 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerInventory {
-    public int tower1Count { get; set; }
-    public int tower2Count { get; set; }
-    public int tower3Count { get; set; }
-    private int sexyPoints  { get; set; }
-
-    public void initPlayerInventoryData()
+    public int Tower1Count { get; set; }
+    public int Tower2Count { get; set; }
+    public int Tower3Count { get; set; }
+    private int SexyPoints  { get; set; }
+    public int Cash { get; set; }
+    private static PlayerInventory _instance;
+    public static PlayerInventory Instance
     {
-        tower1Count = 0;
-        tower2Count = 0;
-        tower3Count = 0;     
+        get
+        {
+            if (_instance == null)
+            {
+                _instance = new PlayerInventory
+                {
+                    Tower1Count = 1,
+                    Tower2Count = 0,
+                    Tower3Count = 0,
+                    Cash = 1000
+                };
+            }
+            return _instance;
+        }
     }
 
     public void AddTowerToInventory(TowerTypes towerType)
     {
         if (towerType == TowerTypes.tower1)
         {
-            tower1Count++;
+            Tower1Count++;
         }
         else if (towerType == TowerTypes.tower2)
         {
-            tower2Count++;
+            Tower2Count++;
         }
         else if (towerType == TowerTypes.tower3)
         {
-            tower3Count++;
+            Tower3Count++;
         }
     }
 
@@ -35,25 +47,25 @@ public class PlayerInventory {
     {
         if (towerType == TowerTypes.tower1)
         {
-            if (tower1Count > 0)
+            if (Tower1Count > 0)
             {
-                tower1Count--;
+                Tower1Count--;
             }
             
         }
         else if (towerType == TowerTypes.tower2)
         {
-            if (tower2Count > 0)
+            if (Tower2Count > 0)
             {
-                tower2Count--;
+                Tower2Count--;
             }
             
         }
         else if (towerType == TowerTypes.tower3)
         {
-            if (tower3Count > 0)
+            if (Tower3Count > 0)
             {
-                tower3Count--;
+                Tower3Count--;
             }
         }
     }
