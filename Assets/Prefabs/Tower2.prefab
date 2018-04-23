@@ -251,8 +251,9 @@ MonoBehaviour:
   range: 15
   fireRate: 1
   enemyTag: Enemy
-  projectilePrefab: {fileID: 0}
-  firePoint: {fileID: 0}
+  projectilePrefab: {fileID: 1580810371633328, guid: 9ab21b00f96484cdd8fbdf8fa01e9646,
+    type: 2}
+  firePoint: {fileID: 4295702685662098}
   fireSound: {fileID: 0}
 --- !u!208 &208173675385005258
 NavMeshObstacle:
