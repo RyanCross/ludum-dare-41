@@ -12,13 +12,8 @@ public class Shop : MonoBehaviour {
 
     void Update()
     {
-        if (Cursor.visible == false)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            Cursor.visible = true;
-        }
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            Cursor.visible = false;
             canvas.SetActive(false);
             //level start
             Enemy.SetNumZombies(120);

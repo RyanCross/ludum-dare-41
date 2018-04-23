@@ -29,7 +29,6 @@ public class PlayerController : MonoBehaviour {
     {
         isInBuildMode = false;
         canTowerBePlaced = false;
-        Cursor.visible = false;
         towerToBePlaced = TowerTypes.noTower;
         playerInventory = PlayerInventory.Instance;
     }
@@ -63,13 +62,11 @@ public class PlayerController : MonoBehaviour {
             if (isInBuildMode == true)
             {
                 isInBuildMode = false;
-                Cursor.visible = false;
                 Debug.Log("Build Mode Exited.");
             }
             else
             {
                 isInBuildMode = true;
-                Cursor.visible = true;
                 Debug.Log("Entering Build Mode.");
                 // just in case, stop firing the gun
                 gun.isFiring = false;
@@ -190,7 +187,6 @@ public class PlayerController : MonoBehaviour {
     // Clean up any left over objects or UI elements from toggling build mode.
     private void cleanUpBuildMode()
     {
-        Cursor.visible = false;
         canTowerBePlaced = false;
         Destroy(currentSilhoutte);
         currentSilhoutte = null;
