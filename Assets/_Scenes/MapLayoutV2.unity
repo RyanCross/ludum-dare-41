@@ -1840,7 +1840,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   thingToBuy: {fileID: 1391027144}
   wallet: {fileID: 710830981}
-  towerType: 0
+  towerType: 1
 --- !u!1001 &736226838
 Prefab:
   m_ObjectHideFlags: 0
@@ -2859,6 +2859,24 @@ Prefab:
       propertyPath: towerOnePrefabs.Array.data[2]
       value: 
       objectReference: {fileID: 1488282335360690, guid: f831aca83951dc743a7ab0ddb447635d,
+        type: 2}
+    - target: {fileID: 114993755537281984, guid: 4f336c3750e6d4122a0c0bafe804c409,
+        type: 2}
+      propertyPath: towerTwoPrefabs.Array.data[0]
+      value: 
+      objectReference: {fileID: 1669307415719232, guid: ee35be186c2698849b5a8dc33bf5b810,
+        type: 2}
+    - target: {fileID: 114993755537281984, guid: 4f336c3750e6d4122a0c0bafe804c409,
+        type: 2}
+      propertyPath: towerTwoPrefabs.Array.data[1]
+      value: 
+      objectReference: {fileID: 1669307415719232, guid: d7f807e894ecbce44a433630094ab456,
+        type: 2}
+    - target: {fileID: 114993755537281984, guid: 4f336c3750e6d4122a0c0bafe804c409,
+        type: 2}
+      propertyPath: towerTwoPrefabs.Array.data[2]
+      value: 
+      objectReference: {fileID: 1669307415719232, guid: db6c9c990cbb9bc4c9526405e64b4e22,
         type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4f336c3750e6d4122a0c0bafe804c409, type: 2}
