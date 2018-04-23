@@ -35,7 +35,7 @@ public class Enemy : MonoBehaviour
     bool playerInRange;
     float timer;
     public float timeBetweenAttacks = 0.5f;
-    int attackDamage = 1;
+    int attackDamage = 25;
 
     private void Awake()
     {
