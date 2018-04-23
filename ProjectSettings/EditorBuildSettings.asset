@@ -14,3 +14,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/_Scenes/MapLayoutV2.unity
     guid: 66a7958c8083cde44851c9e6b18e5430
+  - enabled: 1
+    path: Assets/_Scenes/GameOver.unity
+    guid: 72864b0a39d6e6d4890d999de7816777

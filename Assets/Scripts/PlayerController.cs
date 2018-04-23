@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerController : MonoBehaviour {
 
@@ -217,9 +218,10 @@ public class PlayerController : MonoBehaviour {
 		if(HealthBarUI.health <= 0) {
 			print ("You died");
 			moveSpeed = 0;
-
-			//End Scene?
-		}
+            //Game Over Scene
+            SceneManager.LoadScene(2);
+            //End Scene?
+        }
 
 	}
 
