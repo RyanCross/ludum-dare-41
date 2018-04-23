@@ -34,11 +34,10 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4315927703588992}
-  - component: {fileID: 114152892828787262}
   - component: {fileID: 82581442527098632}
   - component: {fileID: 208173675385005258}
   m_Layer: 2
-  m_Name: Tower2
+  m_Name: Tower2Placeable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,8 +116,8 @@ MeshRenderer:
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_Materials:
-  - {fileID: 2100000, guid: b497c0727d9f3334394bfff73f6b6a9b, type: 2}
-  - {fileID: 2100000, guid: 62709c40ce462894a86a8ce587cb0a62, type: 2}
+  - {fileID: 2100000, guid: b4f5f7c1719622440b1acac1eaf595f5, type: 2}
+  - {fileID: 2100000, guid: 5123478b0ca0438448ac8e3d8a5e70ac, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -237,23 +236,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &114152892828787262
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1669307415719232}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbebc208e1ac41444a127871731102d9, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  range: 15
-  fireRate: 1
-  enemyTag: Enemy
-  projectilePrefab: {fileID: 0}
-  firePoint: {fileID: 0}
-  fireSound: {fileID: 0}
 --- !u!208 &208173675385005258
 NavMeshObstacle:
   m_ObjectHideFlags: 1

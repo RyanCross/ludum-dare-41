@@ -128,6 +128,30 @@ public class PlayerController : MonoBehaviour {
                 canTowerBePlaced = false;
             }
         }
+        if (Input.GetKeyDown(KeyCode.Alpha2))
+        {
+            if (playerInventory.Tower2Count > 0)
+            {
+                if (currentSilhoutte != null)
+                {
+                    Destroy(currentSilhoutte);
+                    currentSilhoutte = null;
+                }
+                currentSilhoutte = (GameObject)Instantiate(towerTwoPrefabs[1]);
+                towerToBePlaced = TowerTypes.tower2;
+                canTowerBePlaced = true;
+            }
+            else
+            {
+                if (currentSilhoutte != null)
+                {
+                    Destroy(currentSilhoutte);
+                    currentSilhoutte = null;
+                }
+                currentSilhoutte = (GameObject)Instantiate(towerTwoPrefabs[2]);
+                canTowerBePlaced = false;
+            }
+        }
         MoveObjectToMouse(currentSilhoutte);
     }
 
@@ -140,6 +164,15 @@ public class PlayerController : MonoBehaviour {
                 if (towerToBePlaced == TowerTypes.tower1)
                 {
                     Instantiate(towerOnePrefabs[0], currentSilhoutte.transform.position, currentSilhoutte.transform.rotation);
+                    playerInventory.RemoveTowerFromInventory(towerToBePlaced);
+                    Destroy(currentSilhoutte);
+                }
+            }
+            if (currentSilhoutte != null && canTowerBePlaced)
+            {
+                if (towerToBePlaced == TowerTypes.tower2)
+                {
+                    Instantiate(towerTwoPrefabs[0], currentSilhoutte.transform.position, currentSilhoutte.transform.rotation);
                     playerInventory.RemoveTowerFromInventory(towerToBePlaced);
                     Destroy(currentSilhoutte);
                 }
