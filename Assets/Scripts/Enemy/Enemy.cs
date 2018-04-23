@@ -142,7 +142,9 @@ public class Enemy : MonoBehaviour
         timer = 0f;
         enemyAudio.Play();
         anim.Play("attack", -1,0f);
-        //player.TakeDamage(attackDamage);
+		if(HealthBarUI.health > 0){
+			player.SendMessage("TakeDamage",attackDamage);//TakeDamage (attackDamage);
+		}
     }
 
     void MakeSlow()

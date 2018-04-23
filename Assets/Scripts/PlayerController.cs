@@ -178,6 +178,18 @@ public class PlayerController : MonoBehaviour {
         }
     }
 
+	public void TakeDamage(int damage) {
+		HealthBarUI.health -= damage;
+
+		if(HealthBarUI.health <= 0) {
+			print ("You died");
+			moveSpeed = 0;
+
+			//End Scene?
+		}
+
+	}
+
 	private void FixedUpdate() {
         body.velocity = moveVelocity;
 	}
